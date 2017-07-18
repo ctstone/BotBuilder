@@ -48,7 +48,7 @@ export class PlayPromptAction implements IIsAction {
         if (list) {
            for (var i = 0; i < list.length; i++) {
                var p = list[i];
-               this.data.prompts.push((<IIsPrompt>p).toPrompt ? (<IIsPrompt>p).toPrompt() : p);
+               this.data.prompts.push((<IIsPrompt>p).toPrompt ? (<IIsPrompt>p).toPrompt() : <IPrompt>p);
            }
         }
         return this;

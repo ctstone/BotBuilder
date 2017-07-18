@@ -32,7 +32,7 @@
 //
 
 export interface IDialog {
-    begin<T>(session: ISession, args?: T): void;
+    begin(session: ISession, args?: any): void;
     replyReceived(session: ISession): void;
     dialogResumed(session: ISession, result: any): void;
 }
@@ -47,13 +47,13 @@ export interface IDialogResult<T> {
 }
 
 export abstract class Dialog implements IDialog {
-    public begin<T>(session: ISession, args?: T): void {
+    public begin(session: ISession, args?: any): void {
         this.replyReceived(session);
     }
 
     abstract replyReceived(session: ISession): void;
 
-    public dialogResumed<T>(session: ISession, result: IDialogResult<T>): void {
+    public dialogResumed(session: ISession, result: IDialogResult<any>): void {
         if (result.error) {
             session.error(result.error);
         } 

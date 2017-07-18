@@ -103,7 +103,7 @@ export class Prompts extends dlg.Dialog {
         invalidRecordingPrompt: "I'm sorry. There was a problem with your recording."
     };
     
-    public begin(session: ses.CallSession, args: IPromptArgs): void {
+    public begin(session: ses.CallSession, args?: IPromptArgs): void {
         utils.copyTo(args || {}, session.dialogData);
         session.send(args.action);
         session.sendBatch();
